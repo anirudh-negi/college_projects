@@ -157,7 +157,23 @@ void symmetric_matrix(){
             arr2[j][i]=arr1[i][j];
         }
     }
-    if (check_matrix(arr1,arr2)==1){
+    int check=1;
+    if(r!=c){
+        check=0;
+    } else{
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                if(arr1[i][j]==arr2[i][j]){
+                    check=1;
+                } else{
+                    check=0;
+                    break;
+                }
+            }
+        }
+    }
+    
+    if (check==1){
         printf("Symmetric matrix.\n");
     }
     else{
@@ -168,33 +184,7 @@ void symmetric_matrix(){
     printf("\n");
 
 }
-int check_matrix(int arr1[][],int arr2[][]){
-    int flag=0;
-    int a=sizeof(arr1)/sizeof(arr1[0]);
-    int b=sizeof(arr1[0])/sizeof(int);
-    int r=sizeof(arr2)/sizeof(arr2[0]);
-    int c=sizeof(arr2[0])/sizeof(int);
-    if(a==r && b==c){
-        for(int i=0;i<a;i++){
-            for(int j=0;j<b;j++){
-                if(arr1[i][j]==arr2[i][j]){
-                    flag=0;
-                } else{
-                    flag=1;
-                    break;
-                }
-            }
-        }
-        if(flag==1){
-            return -1;
-        } else{
-            return 1;
-        }
-    } else{
-        return -1;
-    }
 
-}
 void transpose_matrix(){
     int arr1[20][20],arr2[20][20];
     int r,c;
@@ -213,7 +203,7 @@ void transpose_matrix(){
     printf("\n");
     
 }
-void print_matrix(int arr[],int r,int c){
+void print_matrix(int arr[][],int r,int c){
         for(int i=0;i<r;i++){
             for(int j=0;j<c;j++){
                 printf("%d ",arr[i][j]);
