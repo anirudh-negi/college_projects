@@ -8,7 +8,6 @@ void main(){
         if(choice==0){
             play=0;
         } else if(choice==1){
-
             display_matrix();
 
         }else if(choice==2){
@@ -53,6 +52,7 @@ void display_matrix(){
     printf("Enter the no of rows and columns in your matrix respectively:\n");
     scanf("%d %d",&r,&c);
     input_matrix(arr,r,c);
+    printf("\n");
     printf("Your entered matrix is: \n");
     print_matrix(arr,r,c);
     printf("\n");
@@ -62,14 +62,21 @@ void display_matrix(){
 void add_matrix(){
     int arr1[20][20],arr2[20][20];
     int r,c;
+    printf("Enter the no of rows and columns in your matrix respectively:\n");
+    scanf("%d %d",&r,&c);
+    printf("\n");
     printf("MATRIX 1\n");
-    printf("Enter the no of rows and columns in your matrix respectively:\n");
-    scanf("%d %d",&r,&c);
     input_matrix(arr1,r,c);
+    printf("\n");
     printf("MATRIX 2\n");
-    printf("Enter the no of rows and columns in your matrix respectively:\n");
-    scanf("%d %d",&r,&c);
     input_matrix(arr2,r,c);
+    printf("\n");
+    printf("Matrix 1 is:\n");
+    print_matrix(arr1,r,c);
+    printf("\n");
+    printf("Matrix 2 is:\n");
+    print_matrix(arr2,r,c);
+    printf("\n");
     printf("THE SUM OF THESE MATRIX IS:\n");
     for(int i=0;i<r;i++){
         for(int j=0;j<c;j++){
@@ -93,7 +100,13 @@ void matrix_multiply(){
     printf("Enter the no of rows and columns in your second matrix respectively:\n");
     scanf("%d %d",&a,&b);
     input_matrix(arr2,a,b);
-    if(c!=b){
+    printf("Matrix 1:\n");
+    print_matrix(arr1,r,c);
+    printf("\n");
+    printf("Matrix 2: \n");
+    print_matrix(arr2,a,b);
+    printf("\n");
+    if(c!=a){
         printf("MULTIPLICATION NOT POSSIBLE.\n");
     } else{
     for (int i = 0; i < r; i++) {
@@ -104,7 +117,7 @@ void matrix_multiply(){
                 }
             }
         }
-    printf("The product of the two matrices is:-\n");
+    printf("The product matrix of the two matrices is:-\n");
     print_matrix(res,r,b);
     }
     printf("\n");
@@ -122,17 +135,17 @@ void row_sum_column_sum(){
     do{
         printf("Enter the number of row you want to find sum of: ");
         scanf("%d",&n);
-        if(n>=r){
+        if(n>r){
             printf("Enter valid row number\n");
         }
-    }while(n>=r);
+    }while(n>r);
     do{
         printf("Enter the number of column you want to find sum of: ");
         scanf("%d",&n2);
-        if(n2>=c){
+        if(n2>c){
             printf("Enter valid column number\n");
         }
-    }while(n2>=c);
+    }while(n2>c);
     int sum,sum2=0;
     for(int j=0;j<c;j++){
         sum+=arr1[n-1][j];
@@ -140,6 +153,8 @@ void row_sum_column_sum(){
     for(int j=0;j<r;j++){
         sum2+=arr1[j][n2-1];
     }
+    printf("Your matrix is:\n");
+    print_matrix(arr1,r,c);
     printf("The sum of row number %d is %d. \n",n,sum);
     printf("The sum of column number %d is %d. \n",n2,sum2);
     printf("\n");
@@ -157,6 +172,12 @@ void symmetric_matrix(){
             arr2[j][i]=arr1[i][j];
         }
     }
+    printf("Your matrix is: \n");
+    print_matrix(arr1,r,c);
+    printf("\n");
+    printf("Transpose of your matrix is:\n");
+    print_matrix(arr2,c,r);
+    printf("\n");
     int check=1;
     if(r!=c){
         check=0;
@@ -196,6 +217,8 @@ void transpose_matrix(){
             arr2[j][i]=arr1[i][j];
         }
     }
+    printf("Your matrix:\n");
+    print_matrix(arr1,r,c);
     printf("The transpose of your matrix is: \n");
     print_matrix(arr2,c,r);
     printf("\n");
@@ -203,7 +226,7 @@ void transpose_matrix(){
     printf("\n");
     
 }
-void print_matrix(int arr[][],int r,int c){
+void print_matrix(int arr[20][20],int r,int c){
         for(int i=0;i<r;i++){
             for(int j=0;j<c;j++){
                 printf("%d ",arr[i][j]);
@@ -211,7 +234,7 @@ void print_matrix(int arr[][],int r,int c){
             printf("\n");
         }
     }
-void input_matrix(int arr[][],int r,int c){
+void input_matrix(int arr[20][20],int r,int c){
     for(int i=0;i<r;i++){
         for(int j=0;j<c;j++){
             printf("Enter element of row no. %d and column no. %d: ",i+1,j+1);
