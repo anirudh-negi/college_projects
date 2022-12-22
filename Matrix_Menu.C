@@ -4,7 +4,13 @@ void main(){
         int choice;
     while(play==1){
         menu();
+        do{
         scanf("%d",&choice);
+        if(!(choice>=0 && choice<=6)){
+            printf("Enter valid choice\n");
+        }
+        }while(!(choice>=0 && choice<=6));
+        printf("\n");
         if(choice==0){
             play=0;
         } else if(choice==1){
