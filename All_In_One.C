@@ -34,9 +34,9 @@ void total_votes(){
         printf("Person %d please enter your vote: ",i+1);
         scanf(" %c",&vote);
        //toupper(vote);
-        if(vote=='A'){
+        if(toupper(vote)=='A'){
             A++;
-        } else if(vote=='B'){
+        } else if(toupper(vote)=='B'){
             B++;
         } else{
             invalid_votes[y]=vote;
