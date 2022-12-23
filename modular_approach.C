@@ -115,6 +115,7 @@ void main(){
         int comm=commision(sales);
         printf("\n");
         printf("Your commision is: %d",comm);
+        printf("\n");
 
     }else if(c==3){
         int arr[30];
