@@ -9,15 +9,15 @@
      int age; 
      do{ 
          ask(&gender,&nat,&fit,&age); 
-         if(age>=25 && age<=45 && gender=='M' && nat=='Y' && fit=='Y'){ 
+         if(age>=25 && age<=45 && toupper(gender)=='M' && toupper(nat)=='Y' && toupper(fit)=='Y'){ 
              printf("Your premium is 4K/month\n"); 
              printf("Your policy amount is 5 Lakh.\n"); 
          } 
-         else if(age>=25 && age<=45 && gender=='F' && nat=='Y' && fit=='Y'){ 
+         else if(age>=25 && age<=45 && toupper(gender)=='F' && toupper(nat)=='Y' && toupper(fit)=='Y'){ 
              printf("Your premium is 3K/month\n"); 
              printf("Your policy amount is 3 Lakh.\n"); 
          } 
-         else if(age>=25 && age<=45 && nat=='Y' && fit=='N'){ 
+         else if(age>=25 && age<=45 && toupper(nat)=='Y' && toupper(fit)=='N'){ 
              printf("Your premium is 2K/month\n"); 
              printf("Your policy amount is 2 Lakh.\n"); 
          } 
@@ -28,8 +28,8 @@
          printf("Do you want to continue for another person(Y/N): "); 
          scanf("%c%c",&ans,&ans); 
            scanf("%c",&gender);
-         }while(!(ans=='Y' || ans=='N')); 
-     }while(ans=='Y'); 
+         }while(!(toupper(ans)=='Y' || toupper(ans)=='N')); 
+     }while(toupper(ans=='Y')); 
      printf("Thank you for using our service!\n"); 
      return 0; 
   
