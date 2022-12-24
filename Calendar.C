@@ -53,10 +53,15 @@ int main()
 {
    int year,month,day,daysInMonth,weekDay=0,startingDay;
    int c;
+   do{
    printf("\nEnter year: ");
    scanf("%d",&year);
    printf("\nEnter month number(1-12): ");
    scanf("%d",&month);
+   if(!(month>=1 && month<=12)){
+    printf("ENTER MONTH BW 1 TO 12!\n");
+   } 
+   }while(!(month>=1 && month<=12));
    print_year(year,month);
    do{
     c=getchar();
