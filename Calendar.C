@@ -52,7 +52,7 @@ void print_year(int year,int month){
 int main()
 {
    int year,month,day,daysInMonth,weekDay=0,startingDay;
-   int c;
+   char c;
    do{
    printf("\nEnter year: ");
    scanf("%d",&year);
@@ -64,41 +64,40 @@ int main()
    }while(!(month>=1 && month<=12));
    print_year(year,month);
    do{
-    c=getchar();
-    if(c==75){
+    scanf("%c",&c);
+    if(c=='a' || c=='A'){
         month--;
         if(month==0){
             year--;
             month=12;
         }
         print_year(year,month);
-        c=getchar();
-    } else if(c==77){
+        scanf("%c",&c);
+    } else if(c=='d' || c=='D'){
         month++;
         if(month==13){
             month=1;
             year++;
         }
         print_year(year,month);
-         c=getchar();
-    } else if(c==72){
+        scanf("%c",&c);
+    } else if(c=='w' || c=='W'){
         year++;
         print_year(year,month);
-         c=getchar();
-    } else if(c==80){
+        scanf("%c",&c);
+    } else if(c=='s' || 'S'){
         year--;
         print_year(year,month);
-         c=getchar();
-    } else if(c==105 || c==73){
+         scanf("%c",&c);
+    } else if(c=='i' || c=='I'){
         printf("\nEnter year: ");
         scanf("%d",&year);
         printf("\nEnter month number(1-12): ");
         scanf("%d",&month);
         print_year(year,month);
-         c=getchar();
+        scanf("%c",&c);
     }
    
    
    }while(c!=27);
-
 }
