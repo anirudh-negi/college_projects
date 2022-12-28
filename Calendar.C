@@ -64,7 +64,7 @@ int main()
    }while(!(month>=1 && month<=12));
    print_year(year,month);
    do{
-    scanf("%c",&c);
+    scanf(" %c",&c);
     if(c=='a' || c=='A'){
         month--;
         if(month==0){
@@ -72,7 +72,7 @@ int main()
             month=12;
         }
         print_year(year,month);
-        scanf("%c",&c);
+        scanf(" %c",&c);
     } else if(c=='d' || c=='D'){
         month++;
         if(month==13){
@@ -80,22 +80,22 @@ int main()
             year++;
         }
         print_year(year,month);
-        scanf("%c",&c);
+        scanf(" %c",&c);
     } else if(c=='w' || c=='W'){
         year++;
         print_year(year,month);
-        scanf("%c",&c);
+        scanf(" %c",&c);
     } else if(c=='s' || 'S'){
         year--;
         print_year(year,month);
-         scanf("%c",&c);
+         scanf(" %c",&c);
     } else if(c=='i' || c=='I'){
         printf("\nEnter year: ");
         scanf("%d",&year);
         printf("\nEnter month number(1-12): ");
         scanf("%d",&month);
         print_year(year,month);
-        scanf("%c",&c);
+        scanf(" %c",&c);
     }
    
    
