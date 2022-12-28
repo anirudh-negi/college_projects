@@ -65,7 +65,7 @@ int main(){
         for(int i=1;i<=noc;i++){
             printf("\nENTER DURATION OF YOUR CALL NUMBER %d IN SECONDS: ",i);
             scanf("%f",&time1);
-            list[in]=int(time1);
+            list[in]=(int)time1;
             in++;
             time+=time1;
         }
@@ -85,7 +85,7 @@ int main(){
         for(int i=1;i<=noc;i++){
             printf("\nENTER DURATION OF YOUR CALL NUMBER %d IN SECONDS: ",i);
             scanf("%f",&time1);
-            list[in]=int(time1);
+            list[in]=(int)time1;
             in++;
             time+=time1;
         }
@@ -104,7 +104,7 @@ int main(){
         for(int i=1;i<=noc;i++){
             printf("\nENTER DURATION OF YOUR CALL NUMBER %d IN SECONDS: ",i);
             scanf("%f",&time1);
-            list[in]=int(time1);
+            list[in]=(int)time1;
             in++;
             time+=time1;
         }
@@ -141,6 +141,4 @@ int main(){
     }while(choice!=5);
     return 0;
 }
-
-
 
