@@ -64,7 +64,6 @@ void delticket(struct ticket *tc,int dn){
 
 int main()
 {   
-    char *name;
     int cde;
     int nott;
     int stno;
