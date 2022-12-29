@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
 struct movies
 {
@@ -9,7 +11,7 @@ struct movies
 };
 struct ticket
 {
-    char *name;
+    char name[30];
     char *mname;
     int no_of_tickets;
     int timing;
@@ -97,7 +99,7 @@ int main()
     {
         char name[20];
         printf("Enter your name: ");
-        scanf(" %s",name);
+        scanf(" %s",&tc[tb].name);
         printf("Enter the code of movie you want to book: ");
         scanf("%d", &cde);
         printf("Enter number of tickets you want to book: ");
@@ -115,7 +117,6 @@ int main()
         }else{
             if(nott<mv[stno].seats_left){
                 update(tc,mv,tb,stno,nott);  
-                tc[tb].name=name;
                 tb++;
             } else{
                 printf("Sorry the show is full!\n");
