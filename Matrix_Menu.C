@@ -1,45 +1,18 @@
 #include<stdio.h>
-void main(){
-    int play=1;
-        int choice;
-    while(play==1){
-        menu();
-        do{
-        scanf("%d",&choice);
-        if(!(choice>=0 && choice<=6)){
-            printf("Enter valid choice\n");
+void print_matrix(int arr[20][20],int r,int c){
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                printf("%d ",arr[i][j]);
+            }
+            printf("\n");
         }
-        }while(!(choice>=0 && choice<=6));
-        printf("\n");
-        if(choice==0){
-            play=0;
-        } else if(choice==1){
-            display_matrix();
-
-        }else if(choice==2){
-            
-            add_matrix();
-
-        }else if(choice==3){
-
-            matrix_multiply();
-
-        }else if(choice==4){
-
-            row_sum_column_sum();
-
-        }else if(choice==5){
-
-            symmetric_matrix();
-
-        }else if(choice==6){
-
-            transpose_matrix();
-
-        }else{
-            printf("Enter valid choice! ");
+    }
+void input_matrix(int arr[20][20],int r,int c){
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            printf("Enter element of row no. %d and column no. %d: ",i+1,j+1);
+            scanf("%d",&arr[i][j]);
         }
-        
     }
 }
 void menu(){
@@ -232,19 +205,47 @@ void transpose_matrix(){
     printf("\n");
     
 }
-void print_matrix(int arr[20][20],int r,int c){
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
-                printf("%d ",arr[i][j]);
-            }
-            printf("\n");
+
+void main(){
+    int play=1;
+        int choice;
+    while(play==1){
+        menu();
+        do{
+        scanf("%d",&choice);
+        if(!(choice>=0 && choice<=6)){
+            printf("Enter valid choice\n");
         }
-    }
-void input_matrix(int arr[20][20],int r,int c){
-    for(int i=0;i<r;i++){
-        for(int j=0;j<c;j++){
-            printf("Enter element of row no. %d and column no. %d: ",i+1,j+1);
-            scanf("%d",&arr[i][j]);
+        }while(!(choice>=0 && choice<=6));
+        printf("\n");
+        if(choice==0){
+            play=0;
+        } else if(choice==1){
+            display_matrix();
+
+        }else if(choice==2){
+            
+            add_matrix();
+
+        }else if(choice==3){
+
+            matrix_multiply();
+
+        }else if(choice==4){
+
+            row_sum_column_sum();
+
+        }else if(choice==5){
+
+            symmetric_matrix();
+
+        }else if(choice==6){
+
+            transpose_matrix();
+
+        }else{
+            printf("Enter valid choice! ");
         }
+        
     }
 }
