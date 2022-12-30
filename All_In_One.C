@@ -64,6 +64,7 @@ void total_votes(){
     for(int i=0;i<y;i++){
         printf("%c ",invalid_votes[i]);
     }
+    printf("\nTotal invalid votes: %d",y);
     printf("\n");
     printf("\n");
 }
@@ -128,8 +129,3 @@ int main(){
     }while(n!=0);
     return 0;
 }
-
-
-
-
-
