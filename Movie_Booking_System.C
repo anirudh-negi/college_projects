@@ -130,7 +130,7 @@ int main()
         scanf("%d",&fm);
         int flag=1;
         for (int i = 1; i < 7; i++){
-        if (tc[i].t_no == fm){
+        if (tc[i].t_no+1== fm){
             stno=i;
             flag=0;
             break;
