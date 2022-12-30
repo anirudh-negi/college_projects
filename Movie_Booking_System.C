@@ -58,6 +58,19 @@ void delticket(struct ticket *tc,int dn){
     tc[dn].cost=tc[dn+1].cost;
 
 }
+void view_records(struct ticket *tc,int tb){
+    printf("PVR BOOKING RECORDS\n");
+        printf("---------------------------------------------------------\n");
+        for(int i=0;i<tb;i++){
+            printf("---------------------------------------------------------\n");
+            printf("CUSTOMER NAME: %s\nMOVIE NAME: %s\nNO OF TICKETS: %d\nTICKET NUMBER: %d\nMOVIE TIME: %d\nPRICE: %d\n",tc[i].name,tc[i].mname,tc[i].no_of_tickets,tc[i].t_no+1,tc[i].timing,tc[i].cost);
+            printf("---------------------------------------------------------\n");
+            }
+        printf("---------------------------------------------------------\n");
+        printf("\n");
+}
+    
+
 
 
 int main()
@@ -145,15 +158,8 @@ int main()
     }
     else if(choice == 4){
         printf("\n");
-        printf("PVR BOOKING RECORDS\n");
-        printf("---------------------------------------------------------\n");
-        for(int i=0;i<tb;i++){
-            printf("---------------------------------------------------------\n");
-            printf("CUSTOMER NAME: %s\nMOVIE NAME: %s\nNO OF TICKETS: %d\nTICKET NUMBER: %d\nMOVIE TIME: %d\nPRICE: %d\n",tc[i].name,tc[i].mname,tc[i].no_of_tickets,tc[i].t_no+1,tc[i].timing,tc[i].cost);
-            printf("---------------------------------------------------------\n");
-            }
-        printf("---------------------------------------------------------\n");
-        printf("\n");
+        view_records(tc,tb);
+        
     }
     if(choice!=0){
         do{
