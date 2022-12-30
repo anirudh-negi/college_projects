@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 struct movies
 {
     char *movie;
@@ -51,6 +52,7 @@ void update(struct ticket *tc,struct movies *mv,int tb,int stno,int nott){
     printf("TICKET CONFIRMED. YOUR TOTAL BILL IS %d\n",tc[tb].cost);
 }
 void delticket(struct ticket *tc,int dn){
+    strcpy(tc[dn].name,tc[dn+1].name);
     tc[dn].mname=tc[dn+1].mname;
     tc[dn].no_of_tickets=tc[dn+1].no_of_tickets;
     tc[dn].timing=tc[dn+1].timing;
@@ -61,9 +63,9 @@ void delticket(struct ticket *tc,int dn){
 void view_records(struct ticket *tc,int tb){
     printf("PVR BOOKING RECORDS\n");
         printf("---------------------------------------------------------\n");
-        for(int i=0;i<tb;i++){
+        for(int i=1;i<tb;i++){
             printf("---------------------------------------------------------\n");
-            printf("CUSTOMER NAME: %s\nMOVIE NAME: %s\nNO OF TICKETS: %d\nTICKET NUMBER: %d\nMOVIE TIME: %d\nPRICE: %d\n",tc[i].name,tc[i].mname,tc[i].no_of_tickets,tc[i].t_no+1,tc[i].timing,tc[i].cost);
+            printf("CUSTOMER NAME: %s\nMOVIE NAME: %s\nNO OF TICKETS: %d\nTICKET NUMBER: %d\nMOVIE TIME: %d\nPRICE: %d\n",tc[i].name,tc[i].mname,tc[i].no_of_tickets,tc[i].t_no,tc[i].timing,tc[i].cost);
             printf("---------------------------------------------------------\n");
             }
         printf("---------------------------------------------------------\n");
@@ -78,7 +80,7 @@ int main()
     int cde;
     int nott;
     int stno;
-    int tb = 0;
+    int tb = 1;
     struct ticket tc[100];
     struct movies mv[7]={
     {},
@@ -141,7 +143,7 @@ int main()
         scanf("%d",&fm);
         int flag=1;
         for (int i = 1; i < 7; i++){
-        if (tc[i].t_no+1== fm){
+        if (tc[i].t_no== fm){
             stno=i;
             flag=0;
             break;
@@ -151,7 +153,9 @@ int main()
             printf("INVALID TICKET NUMBER PLEASE TRY AGAIN LATER \n");
         }else{
             mv[stno].seats_left+=tc[stno].no_of_tickets;
-            delticket(tc,stno);
+            for(int x=stno-1;x<tb;x++){
+            delticket(tc,x);
+            }
             tb--;
             printf("TICKET CANCELLED! HOPE TO SEE YOU AGAIN!!\n");
         }
@@ -167,8 +171,9 @@ int main()
         printf("Press 1 to continue.\n");
         printf("Press 0 to exit\n");
         scanf("%d",&choice);
-    }while(!(choice==1 || choice ==0));
+        }while(!(choice==1 || choice ==0));
     }
     }while(choice==1);
+    printf("\nTHANK YOU FOR USING PVR SERVICES HAVE A NICE DAY\n");
     return 0;
 }
