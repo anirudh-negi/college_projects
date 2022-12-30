@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 struct movies
 {
@@ -140,11 +138,8 @@ int main()
             printf("INVALID TICKET NUMBER PLEASE TRY AGAIN LATER \n");
         }else{
             mv[stno].seats_left+=tc[stno].no_of_tickets;
-            for(int i=stno;i<tb;i++){
-                    delticket(tc,i);
-                    tb--;
-
-            }
+            delticket(tc,stno);
+            tb--;
             printf("TICKET CANCELLED! HOPE TO SEE YOU AGAIN!!\n");
         }
     }
